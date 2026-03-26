@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/UI-HTML-CSS/Styles/styles.css">
+    <link rel="stylesheet" href="/UI-HTML-CSS/Styles/cupones-styles.css">
+    <title>Cupones | Rappi'Doz</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="cupones-section" style="padding-top: 140px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="color: var(--deep-dark); font-size: 32px; font-weight: 800;">
+                <i class="fas fa-ticket-alt"></i> Tus Cupones Disponibles
+            </h2>
+            <p style="color: var(--dark-green); font-weight: 600;">Pasa el mouse para descubrir tus beneficios</p>
+        </div>
+
+        <div class="cupones-grid">
+            <article class="cupón-card">
+                <div class="cupón-izq">
+                    <h2 style="font-weight: 800;">15%</h2>
+                    <span>OFF</span>
+                </div>
+                <div class="cupón-der">
+                    <h3>Bienvenida</h3>
+                    <p>Válido en tu primera compra de hamburguesas.</p>
+                    <div class="codigo-placeholder">RAPPI15OFF</div>
+                </div>
+            </article>
+
+            <article class="cupón-card">
+                <div class="cupón-izq">
+                    <h2 style="font-weight: 800;">₡2k</h2>
+                    <span>Regalo</span>
+                </div>
+                <div class="cupón-der">
+                    <h3>Pizza Night</h3>
+                    <p>Descuento aplicable en pizzas familiares.</p>
+                    <div class="codigo-placeholder">PIZZALOVER</div>
+                </div>
+            </article>
+
+            <article class="cupón-card">
+                <div class="cupón-izq">
+                    <i class="fas fa-truck" style="font-size: 2rem; margin-bottom: 5px;"></i>
+                    <span>Gratis</span>
+                </div>
+                <div class="cupón-der">
+                    <h3>Express Gratis</h3>
+                    <p>En pedidos superiores a ₡12,000 en todo el menú.</p>
+                    <div class="codigo-placeholder">ENVIOGRATIS</div>
+                </div>
+            </article>
+
+            <article class="cupón-card">
+                <div class="cupón-izq">
+                    <h2 style="font-weight: 800;">10%</h2>
+                    <span>OFF</span>
+                </div>
+                <div class="cupón-der">
+                    <h3>Sweet Treat</h3>
+                    <p>Endulza tu día con descuento en todos los postres.</p>
+                    <div class="codigo-placeholder">POSTREDOZ</div>
+                </div>
+            </article>
+
+            <article class="cupón-card">
+                <div class="cupón-izq">
+                    <h2 style="font-weight: 800;">₡3k</h2>
+                    <span>OFF</span>
+                </div>
+                <div class="cupón-der">
+                    <h3>Combo Master</h3>
+                    <p>Ahorra en combos grandes para compartir en familia.</p>
+                    <div class="codigo-placeholder">COMBOMASTER</div>
+                </div>
+            </article>
+
+            <article class="cupón-card">
+                <div class="cupón-izq">
+                    <i class="fas fa-glass-whiskey" style="font-size: 2rem; margin-bottom: 5px;"></i>
+                    <span>2x1</span>
+                </div>
+                <div class="cupón-der">
+                    <h3>Drinks Up</h3>
+                    <p>Aplica en bebidas seleccionadas de lunes a jueves.</p>
+                    <div class="codigo-placeholder">BEBIDAS2X1</div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/UI-HTML-CSS/js/main.js"></script>
+    <script>
+        loadComponent('header-placeholder', '../Components/header.html');
+        loadComponent('footer-placeholder', '../Components/footer.html');
+    </script>
+</body>
+</html>

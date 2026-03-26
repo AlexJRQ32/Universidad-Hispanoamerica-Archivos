@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\roble\\OneDrive\\Documentos\\Universidad Hispanoamerica - Archivos\\Dise\u00F1o de Sistemas\\Proyecto Programado\\Systems_Design_Project_Demo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{13AA779F-B50E-47F1-B399-9D0201BF441A}|Systems_Design_Project_Demo\\Systems_Design_Project_Demo.csproj|c:\\users\\roble\\onedrive\\documentos\\universidad hispanoamerica - archivos\\dise\u00F1o de sistemas\\proyecto programado\\systems_design_project_demo\\systems_design_project_demo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{13AA779F-B50E-47F1-B399-9D0201BF441A}|Systems_Design_Project_Demo\\Systems_Design_Project_Demo.csproj|solutionrelative:systems_design_project_demo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13AA779F-B50E-47F1-B399-9D0201BF441A}|Systems_Design_Project_Demo\\Systems_Design_Project_Demo.csproj|c:\\users\\roble\\onedrive\\documentos\\universidad hispanoamerica - archivos\\dise\u00F1o de sistemas\\proyecto programado\\systems_design_project_demo\\systems_design_project_demo\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{13AA779F-B50E-47F1-B399-9D0201BF441A}|Systems_Design_Project_Demo\\Systems_Design_Project_Demo.csproj|solutionrelative:systems_design_project_demo\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13AA779F-B50E-47F1-B399-9D0201BF441A}|Systems_Design_Project_Demo\\Systems_Design_Project_Demo.csproj|c:\\users\\roble\\onedrive\\documentos\\universidad hispanoamerica - archivos\\dise\u00F1o de sistemas\\proyecto programado\\systems_design_project_demo\\systems_design_project_demo\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{13AA779F-B50E-47F1-B399-9D0201BF441A}|Systems_Design_Project_Demo\\Systems_Design_Project_Demo.csproj|solutionrelative:systems_design_project_demo\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\roble\\OneDrive\\Documentos\\Universidad Hispanoamerica - Archivos\\Dise\u00F1o de Sistemas\\Proyecto Programado\\Systems_Design_Project_Demo\\Systems_Design_Project_Demo\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Systems_Design_Project_Demo\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\roble\\OneDrive\\Documentos\\Universidad Hispanoamerica - Archivos\\Dise\u00F1o de Sistemas\\Proyecto Programado\\Systems_Design_Project_Demo\\Systems_Design_Project_Demo\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Systems_Design_Project_Demo\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-02-22T10:21:31.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\roble\\OneDrive\\Documentos\\Universidad Hispanoamerica - Archivos\\Dise\u00F1o de Sistemas\\Proyecto Programado\\Systems_Design_Project_Demo\\Systems_Design_Project_Demo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Systems_Design_Project_Demo\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\roble\\OneDrive\\Documentos\\Universidad Hispanoamerica - Archivos\\Dise\u00F1o de Sistemas\\Proyecto Programado\\Systems_Design_Project_Demo\\Systems_Design_Project_Demo\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Systems_Design_Project_Demo\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-22T10:13:33.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\roble\\OneDrive\\Documentos\\Universidad Hispanoamerica - Archivos\\Dise\u00F1o de Sistemas\\Proyecto Programado\\Systems_Design_Project_Demo\\Systems_Design_Project_Demo\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Systems_Design_Project_Demo\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\roble\\OneDrive\\Documentos\\Universidad Hispanoamerica - Archivos\\Dise\u00F1o de Sistemas\\Proyecto Programado\\Systems_Design_Project_Demo\\Systems_Design_Project_Demo\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Systems_Design_Project_Demo\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-22T10:12:40.472Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

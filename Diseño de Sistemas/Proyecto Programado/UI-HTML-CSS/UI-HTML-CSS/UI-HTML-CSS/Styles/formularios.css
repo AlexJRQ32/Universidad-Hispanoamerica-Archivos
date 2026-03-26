@@ -1,0 +1,171 @@
+/* --- ESTILOS DE FORMULARIO TIERRA --- */
+
+.form-section {
+    padding: 120px 10% 60px;
+    background-color: var(--light-mint);
+    min-height: 100vh;
+}
+
+.form-container {
+    background: var(--white);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: var(--shadow-standard);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.btn-back {
+    text-decoration: none;
+    color: var(--dark-green);
+    font-weight: 600;
+    transition: var(--transicion-suave);
+}
+
+.btn-back:hover { color: var(--deep-dark); }
+
+.form-header h2 {
+    color: var(--deep-dark);
+    font-size: 28px;
+}
+
+/* Grid del Formulario */
+.form-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Estilos de Inputs */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-green);
+    font-size: 14px;
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border: 2px solid var(--soft-green);
+    border-radius: 15px;
+    background-color: var(--light-mint);
+    color: var(--deep-dark);
+    font-size: 15px;
+    outline: none;
+    transition: var(--transicion-suave);
+}
+
+.input-group input:focus, 
+.input-group select:focus, 
+.input-group textarea:focus {
+    border-color: var(--medium-green);
+    background-color: var(--white);
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Vista Previa */
+.form-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-preview span {
+    font-weight: 600;
+    color: var(--dark-green);
+    font-size: 14px;
+}
+
+/* Botones Inferiores */
+.form-actions-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding-top: 30px;
+    border-top: 2px solid var(--soft-green);
+}
+
+.btn-guardar {
+    background-color: var(--deep-dark);
+    color: var(--white);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transicion-suave);
+}
+
+.btn-guardar:hover {
+    background-color: var(--medium-green);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(71, 40, 37, 0.15);
+}
+
+.btn-cancelar {
+    background: none;
+    border: none;
+    color: var(--dark-green);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.btn-cancelar:hover { color: #d9534f; }
+
+/* --- CORRECCIÓN PARA IMAGEN REDONDA --- */
+
+/* Contenedor específico de la foto/imagen en el formulario */
+.form-group-foto {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex; /* Asegura que la imagen se centre correctamente */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos aplicados a la etiqueta img dentro del contenedor */
+.form-group-foto img {
+    width: 120px;       /* Ajusta el tamaño que desees, por ejemplo 120px o 150px */
+    height: 120px;      /* IMPORTANTE: El alto debe ser igual al ancho para un círculo perfecto */
+    border-radius: 50%; /* Esto crea el efecto redondo */
+    object-fit: cover;  /* Evita que la imagen se deforme o estire dentro del círculo */
+    border: 4px solid var(--soft-green); /* Añade el borde característico */
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .form-main-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-container {
+        padding: 25px;
+    }
+
+    .form-preview {
+        order: -1; /* Mover la vista previa arriba en móviles */
+    }
+}

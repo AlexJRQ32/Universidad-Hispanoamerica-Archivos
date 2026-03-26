@@ -1,0 +1,81 @@
+/* --- CUADRÍCULA DE 2 COLUMNAS --- */
+.cupones-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Muestra de 2 en 2 */
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* --- TARJETA DE CUPÓN --- */
+.cupón-card {
+    background: var(--white);
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--soft-green);
+    position: relative;
+    transition: all 0.4s ease;
+    min-height: 160px;
+}
+
+.cupón-izq {
+    background: var(--deep-dark);
+    color: var(--white);
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px dashed var(--soft-green);
+    transition: background 0.3s ease;
+}
+
+.cupón-der {
+    padding: 20px;
+    flex: 1;
+}
+
+.cupón-der h3 {
+    color: var(--deep-dark);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.cupón-der p {
+    color: var(--deep-dark);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* --- ANIMACIONES Y HOVER --- */
+.cupón-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.cupón-card:hover .cupón-izq {
+    background: var(--medium-green); /* Cambio de color al placeholder */
+}
+
+/* Perforaciones del ticket */
+.cupón-card::before, .cupón-card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--crema-fondo);
+    border-radius: 50%;
+    left: 110px;
+    border: 2px solid var(--soft-green);
+}
+.cupón-card::before { top: -11px; }
+.cupón-card::after { bottom: -11px; }
+
+/* Responsivo para móviles */
+@media (max-width: 850px) {
+    .cupones-grid {
+        grid-template-columns: 1fr; /* En pantallas pequeñas vuelve a 1 columna */
+    }
+}

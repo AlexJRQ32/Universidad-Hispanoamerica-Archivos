@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/UI-HTML-CSS/Styles/styles.css"> 
+    <link rel="stylesheet" href="/UI-HTML-CSS/Styles/crud-styles.css">
+    <title>Mis Productos | Rappi'Doz</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <section class="gestion-seccion">
+        <div class="seccion-header">
+            <h2>Mis Platillos</h2>
+            <a href="products-form.html" class="btn-nuevo-producto" title="Agregar nuevo producto">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+
+        <div class="grid-gestion-crud">
+
+            <div class="card-gestion-crud">
+                <input type="checkbox" id="zoom-1" class="toggle-detalles">
+                
+                <div class="card-principal">
+                    <div class="accion-izq">
+                        <label for="zoom-1" class="btn-lupa" title="Ver detalles">
+                            <i class="fas fa-search-plus"></i>
+                        </label>
+                    </div>
+
+                    <div class="card-contenido rect">
+                        <img src="/UI-HTML-CSS/img/burger-food.png" alt="Hamburguesa">
+                        <div class="info-basica">
+                            <h3>Classic Burger</h3>
+                            <div class="meta-info">
+                                <span class="etiqueta">Hamburguesas</span>
+                                <span class="valor-destacado">₡4,500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acciones-der">
+                        <a href="products-form.html?id=1" class="btn-accion edit" title="Editar">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                        <button class="btn-accion delete" title="Eliminar">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="detalles-desplegables">
+                    <div class="detalles-inner">
+                        <p><strong>Descripción:</strong> Jugosa carne de res 100%, queso cheddar fundido, lechuga fresca, tomate y nuestra salsa secreta en pan artesanal.</p>
+                        <p><strong>Ingredientes:</strong> Res, Cheddar, Lechuga, Tomate, Salsa, Pan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-gestion-crud">
+                <input type="checkbox" id="zoom-2" class="toggle-detalles">
+                
+                <div class="card-principal">
+                    <div class="accion-izq">
+                        <label for="zoom-2" class="btn-lupa" title="Ver detalles">
+                            <i class="fas fa-search-plus"></i>
+                        </label>
+                    </div>
+
+                    <div class="card-contenido rect">
+                        <img src="/UI-HTML-CSS/img/pizza-city.png" alt="Pizza">
+                        <div class="info-basica">
+                            <h3>Pepperoni Lover</h3>
+                            <div class="meta-info">
+                                <span class="etiqueta">Pizza</span>
+                                <span class="valor-destacado">₡8,900</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acciones-der">
+                        <a href="#" class="btn-accion edit" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+                        <button class="btn-accion delete" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+
+                <div class="detalles-desplegables">
+                    <div class="detalles-inner">
+                        <p><strong>Descripción:</strong> Nuestra clásica masa delgada cubierta de salsa de tomate, mozzarella premium y doble porción de pepperoni.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/UI-HTML-CSS/js/main.js"></script>
+    <script>
+        loadComponent('header-placeholder', '../Components/header.html');
+        loadComponent('footer-placeholder', '../Components/footer.html');
+    </script>
+</body>
+</html>
