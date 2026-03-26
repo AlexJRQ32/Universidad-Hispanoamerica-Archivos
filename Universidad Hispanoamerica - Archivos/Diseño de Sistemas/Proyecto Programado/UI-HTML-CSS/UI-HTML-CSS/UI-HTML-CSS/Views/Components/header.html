@@ -1,0 +1,48 @@
+<nav class="navbar">
+    <a href="#" class="navbar-brand">
+        <div class="brand-img">
+            <img src="/UI-HTML-CSS/img/logo-final.png" alt="Logo">
+        </div>
+    </a>
+    
+    <button class="menu-toggle" id="mobile-menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="sesion" id="navbar-menu">
+        <a href="/UI-HTML-CSS/Views/index.html" class="solo-usuarios">
+            <i class="fa-solid fa-house"></i> Inicio
+        </a>
+        <a href="/UI-HTML-CSS/Views/Navbar/busqueda.html" class="solo-usuarios">
+            <i class="fa-solid fa-magnifying-glass"></i> Búsqueda
+        </a>
+        <a href="/UI-HTML-CSS/Views/Navbar/carrito.html" class="solo-usuarios">
+            <i class="fa-solid fa-cart-shopping"></i> Carrito
+        </a>
+
+        <div class="dropdown">
+            <button class="dropdown-btn">
+                <i class="fa-solid fa-ellipsis-vertical"></i> Más
+            </button>
+            <div class="dropdown-content">
+                <a href="/UI-HTML-CSS/Views/Navbar/cupones.html"><i class="fa-solid fa-ticket"></i> Cupones</a>
+                <a href="/UI-HTML-CSS/Views/Navbar/calificanos.html"><i class="fa-solid fa-star-half-stroke"></i> Califícanos</a>
+                
+                <div class="sub-dropdown">
+                    <a href="#" class="sub-dropdown-btn">
+                        <i class="fa-solid fa-sliders"></i> Configuración <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </a>
+                    <div class="sub-dropdown-content">
+                        <a href="/UI-HTML-CSS/Views/CRUDs/users-config.html"><i class="fa-solid fa-user-gear"></i> Usuarios</a>
+                        <a href="/UI-HTML-CSS/Views/CRUDs/products-list.html"><i class="fa-solid fa-burger"></i> Productos</a>
+                        <a href="/UI-HTML-CSS/Views/CRUDs/restaurants-list.html"><i class="fa-solid fa-shop"></i> Restaurantes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/UI-HTML-CSS/Views/Login/login.html">
+            <i class="fa-solid fa-circle-user"></i> Iniciar sesión
+        </a>
+    </div>
+</nav>

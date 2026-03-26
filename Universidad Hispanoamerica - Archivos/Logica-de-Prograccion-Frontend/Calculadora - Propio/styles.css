@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+    background-color: #212121;
+    color: white;
+    flex-direction: column;
+}
+
+.calc-header{
+    width: 300px;
+    height: 450px;
+    background-color: #323232;
+    border: 5px solid #363636;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 2px 7px rgba(8, 8, 8, .26);
+}
+
+.render-numbers{
+    width: 90%;
+    height: 90px;
+    background-color: #666;
+    border-radius: 10px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    box-shadow: 5px 2px 7px rgba(8, 8, 8, .26);
+    display: flex;
+    border: 3px solid #737373;
+    justify-content: end;
+    align-items: center;
+    font-size: 30px;
+}
+
+.render-numbers span{
+    padding: 0 10px;
+}
+
+.calc{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: -20px;
+}
+
+.btn-tecla{
+    width: 20%;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 10px;
+    box-shadow: 5px 2px 7px rgba(8, 8, 8, .26);
+    border: 2px;
+    background-color: #454545;
+    color: white;
+}
+
+.btn-clear{
+    background-color: #888;
+}
+
+.btn-ecuacion{
+    background-color: #ffb74d;
+}
+
+.btn-tecla:hover{
+    background-color: #555;
+}
+
+.btn-clear:hover{
+    background-color: #aaa;
+}
+
+.btn-ecuacion:hover{
+    background-color: #ffe0b2;
+}
+
+.btn-tecla:active{
+    transform: scale(0.92);
+    transition: 0.2s;
+}

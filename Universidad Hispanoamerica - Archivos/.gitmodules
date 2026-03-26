@@ -1,0 +1,12 @@
+[submodule "Proyecto-Programado-Aplicaci-n-de-Bases-de-Datos"]
+	path = Proyecto-Programado-Aplicaci-n-de-Bases-de-Datos
+	url = https://github.com/AlexJRQ32/Proyecto-Programado-Aplicaci-n-de-Bases-de-Datos.git
+[submodule "RappiDozApp"]
+	path = RappiDozApp
+	url = https://github.com/AlexJRQ32/RappiDozApp.git
+[submodule "Logica-de-Prograccion-Frontend"]
+	path = Logica-de-Prograccion-Frontend
+	url = https://github.com/AlexJRQ32/Logica-de-Prograccion-Frontend.git
+[submodule "Aplicación de Bases de Datos/Proyecto Programado"]
+	path = Aplicación de Bases de Datos/Proyecto Programado
+	url = https://github.com/AlexJRQ32/Proyecto-Programado-Aplicaci-n-de-Bases-de-Datos.git

@@ -1,0 +1,274 @@
+/* --- VARIABLES DE TU PALETA DE COLORES (Adaptadas) --- */
+:root {
+    --bg-main: #fff4e2;         /* Crema base (Fondo) */
+    --text-main: #472825;       /* Marrón profundo (Títulos) */
+    --text-muted: #96786f;      /* Tierra suave (Subtítulos) */
+    --accent-main: #d3ab80;     /* Dorado/Madera (Detalles, Iconos) */
+    --accent-soft: #fde4bc;     /* Arena clara (Fondos suaves, Hovers) */
+    --white: #ffffff;
+    --shadow-soft: 0 8px 30px rgba(71, 40, 37, 0.08);
+}
+
+/* --- RESET Y BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif; /* Usamos Poppins para un look más App */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* --- ESTILOS GENERALES DE SECCIÓN --- */
+section {
+    padding: 40px 8%;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+/* ===== 1. SECCIÓN BUSCADOR PROTAGONISTA ===== */
+.search-hero {
+    background-image: linear-gradient(rgba(71, 40, 37, 0.4), rgba(71, 40, 37, 0.4)), url(/UI-HTML-CSS/img/index-img.avif);
+    background-size: cover ;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 8%;
+    border-radius: 0 0 50px 50px; /* Curva elegante en la base */
+    box-shadow: 0 10px 40px rgba(71, 40, 37, 0.05);
+    text-align: center;
+}
+
+.search-wrapper h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+.search-box-custom {
+    background: var(--bg-main);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 100px; /* Redondeado perfecto */
+    max-width: 650px;
+    margin: 0 auto;
+    border: 2px solid var(--accent-soft);
+    transition: all 0.3s ease;
+}
+
+.search-box-custom:focus-within {
+    border-color: var(--accent-main);
+    box-shadow: 0 0 15px rgba(211, 171, 128, 0.3);
+}
+
+.main-icon {
+    color: var(--accent-main);
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.search-box-custom input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px 15px;
+    font-size: 18px;
+    color: var(--text-main);
+}
+
+.search-box-custom input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.btn-action-custom {
+    background-color: var(--primary-dark, #472825);
+    color: var(--white);
+    border: none;
+    padding: 12px 35px;
+    border-radius: 100px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-action-custom:hover {
+    background-color: var(--secondary-earth, #96786f);
+}
+
+/* ===== 2. SECCIÓN CATEGORÍAS FLUIDAS (Scroll-X) ===== */
+.categories-fluid {
+    background-color: var(--white);
+    margin-top: 20px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-soft);
+}
+
+.scroll-container-custom {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Activamos el scroll horizontal */
+    padding: 10px 5px 20px 5px;
+    scrollbar-width: none; /* Ocultamos barra en Firefox */
+}
+
+.scroll-container-custom::-webkit-scrollbar {
+    display: none; /* Ocultamos barra en Chrome/Safari */
+}
+
+.category-card-custom {
+    flex: 0 0 auto; /* No permite que las tarjetas se encojan */
+    background: var(--light-cream, #fff4e2);
+    border: 1px solid var(--accent-soft);
+    padding: 20px 25px;
+    border-radius: 100px; /* Estilo 'píldora' */
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.category-card-custom i {
+    font-size: 22px;
+    color: var(--accent-main);
+}
+
+.category-card-custom span {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.category-card-custom:hover {
+    background: var(--accent-main);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.category-card-custom:hover i {
+    color: var(--white);
+}
+
+/* ===== 3. SECCIÓN RESULTADOS MINIMALISTAS ===== */
+.results-minimal {
+    padding-top: 50px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.view-all {
+    text-decoration: none;
+    color: var(--accent-main);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.grid-results-custom {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.restaurant-card-minimal {
+    background: var(--white);
+    border-radius: 25px; /* Bordes muy redondeados */
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.restaurant-card-minimal:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(71, 40, 37, 0.12);
+    border-color: var(--accent-soft);
+}
+
+.img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rating-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-main);
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rating-badge i {
+    color: #f1c40f; /* Color estrella estándar */
+}
+
+.info-minimal {
+    padding: 20px;
+}
+
+.info-minimal h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.cuisine {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.delivery-info {
+    font-size: 13px;
+    color: var(--text-main);
+    background: var(--light-cream, #fff4e2);
+    padding: 6px 12px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.cta-final h2{
+    color: var(--white);
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+    section { padding: 30px 5%; }
+    .search-wrapper h1 { font-size: 30px; }
+    .search-box-custom { flex-direction: column; border-radius: 20px; padding: 15px; }
+    .btn-action-custom { width: 100%; margin-top: 10px; }
+    .scroll-container-custom { gap: 10px; }
+}

@@ -1,0 +1,41 @@
+﻿@model List<RappiDozApp.Models.CuponApartado>
+
+<div class="wallet-container">
+    <p class="wallet-title">
+        <i class="fas fa-wallet"></i> Tus cupones guardados
+    </p>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="wallet-empty">
+            <small>No tienes cupones en tu billetera.</small>
+        </div>
+    }
+    else
+    {
+        <div class="wallet-list">
+            @foreach (var cupon in Model)
+            {
+                @* CARD DE CUPÓN CLARO *@
+                <div onclick="activarCuponParaCompra('@cupon.Codigo', @cupon.Descuento, @(cupon.EsPorcentaje.ToString().ToLower()))"
+                     class="wallet-card">
+
+                    <div class="wallet-card-main">
+                        <div class="wallet-icon-box">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div>
+                            <span class="wallet-code">@cupon.Codigo</span>
+                            <small class="wallet-discount">
+                                @(cupon.EsPorcentaje? cupon.Descuento + "% DTO" : "₡" + cupon.Descuento.ToString("N0") + " menos")
+                            </small>
+                        </div>
+                    </div>
+                    <i class="fas fa-plus-circle wallet-action-icon"></i>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<!-- Styles moved to ~/css/_StylesShared.css -->

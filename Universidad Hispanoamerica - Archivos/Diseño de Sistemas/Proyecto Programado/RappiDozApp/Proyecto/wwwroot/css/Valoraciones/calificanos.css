@@ -1,0 +1,212 @@
+﻿/* #region Calificanos */
+.rd-card-main {
+    background: var(--section-bg-primary);
+    border-radius: 24px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 34px;
+    box-shadow: none;
+    position: relative;
+    border: 1px solid var(--border-main);
+    color: var(--text-main);
+    color-scheme: light;
+}
+
+.btn-close-custom {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--accent-main);
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.btn-close-custom:hover {
+    opacity: 1;
+}
+
+.rating-main-title {
+    color: var(--text-main);
+    font-weight: 900;
+    font-size: 2.1rem;
+    margin-bottom: 5px;
+}
+
+.rating-divider {
+    width: 60px;
+    height: 4px;
+    background: var(--accent-main);
+    margin: 0 auto 15px;
+    border-radius: 2px;
+}
+
+.rating-subtitle,
+.rating-label,
+.rating-recommend-label {
+    color: var(--text-muted);
+}
+
+.rating-subtitle {
+    font-size: 1.05rem;
+}
+
+.rating-label,
+.rating-recommend-label {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.rating-label {
+    font-size: 0.8rem;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.rating-stars i {
+    font-size: 3rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.rating-stars i.active {
+    color: var(--accent-main) !important;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(var(--accent-main-rgb), 0.35));
+}
+
+.rd-input-group {
+    border-radius: 18px;
+    background-color: var(--section-bg-tertiary);
+    border: 1px solid var(--border-main);
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.rd-textarea,
+.rd-select {
+    border: none !important;
+    padding: 18px;
+    font-size: 1rem;
+    background: var(--section-bg-tertiary) !important;
+    color: var(--text-main) !important;
+    width: 100%;
+    outline: none !important;
+    color-scheme: light;
+}
+
+.rd-textarea {
+    border-radius: 18px;
+    resize: vertical;
+}
+
+.rd-select {
+    border-radius: 18px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.rd-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.rd-btn-save {
+    background: var(--accent-main) !important;
+    color: var(--accent-contrast) !important;
+    border-radius: 999px;
+    padding: 18px;
+    font-weight: 800;
+    font-size: 1rem;
+    width: 100%;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.rd-btn-save:hover {
+    background: var(--footer-text) !important;
+    transform: translateY(-2px);
+}
+
+.modal-content .rd-card-main {
+    background: var(--section-bg-primary);
+}
+
+.rating-brand-side {
+    border-color: var(--border-main) !important;
+}
+
+.rating-brand-quote {
+    color: var(--accent-main);
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.rating-logo-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.rating-logo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 6px solid var(--border-main);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    background: var(--bg-main);
+    object-fit: cover;
+}
+
+.rating-heart-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--accent-main);
+    color: var(--accent-contrast);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--surface-main);
+}
+
+.rating-recommend-label {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .rd-card-main {
+        padding: 24px 20px;
+    }
+
+    .rating-brand-side {
+        border-left: none !important;
+        border-top: 1px solid var(--border-main) !important;
+        margin-top: 24px;
+        padding-top: 24px;
+    }
+}
+/* #endregion */
+

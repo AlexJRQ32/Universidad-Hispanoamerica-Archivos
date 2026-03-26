@@ -1,0 +1,64 @@
+﻿@model RappiDozApp.Models.Producto
+
+<div class="p-4">
+    <form id="formProducto" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="row g-4">
+            <div class="col-md-5 text-center">
+                <label class="form-label d-block mb-3 fw-bold product-image-label">Imagen del Platillo</label>
+                <div class="image-preview-container">
+                    <img id="previewFoto"
+                         src="@(Model.FotoBinaria != null ? $"data:{Model.ContentType};base64,{Convert.ToBase64String(Model.FotoBinaria)}" : "/img/placeholder-food.png")"
+                         class="preview-photo" />
+
+                    <input type="file" name="fotoArchivo" id="fotoArchivo" class="d-none" accept="image/*" onchange="previewImage(this)" />
+
+                    <button type="button" class="btn preview-photo-btn"
+                            onclick="document.getElementById('fotoArchivo').click()">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Nombre del Platillo</label>
+                    <input asp-for="Nombre" class="form-control rd-input" placeholder="Nombre delicioso..." required />
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label class="form-label fw-bold">Precio (₡)</label>
+                        <input asp-for="Precio" type="number" class="form-control rd-input" placeholder="0" />
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label fw-bold">Categoría</label>
+                        <select asp-for="CategoriaId" asp-items="ViewBag.Categorias" class="form-select rd-input">
+                            <option value="">Seleccionar...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Restaurante</label>
+                    <select asp-for="RestauranteId" asp-items="ViewBag.Restaurantes" class="form-select rd-input"></select>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label fw-bold">Descripción Corta</label>
+                <textarea asp-for="Descripcion" class="form-control rd-input" rows="3" placeholder="Ingredientes, detalles..."></textarea>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-3 border-top">
+            <div class="col-12 text-end">
+                <button type="button" class="btn btn-light px-4 me-2 dashboard-secondary-btn" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="guardarDatos('Producto')" class="btn px-5 dashboard-save-btn">
+                    Guardar Platillo
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="~/js/Dashboard/form-producto.js"></script>

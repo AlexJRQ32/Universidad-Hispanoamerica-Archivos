@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+@model IEnumerable<RappiDozApp.Models.Cupon>
+
+@{
+    Layout = "_Layout";
+    var emailLogueado = Accessor.HttpContext.Session.GetString("EmailUsuario");
+    var cuponesReclamados = (List<string>)ViewBag.CuponesReclamados ?? new List<string>();
+}
+
+<div class="container">
+    <div class="pizarra-virtual">
+        <h2 class="text-center mb-5 benefits-title">PANEL DE BENEFICIOS</h2>
+
+        <div class="galeria-cupones">
+            @foreach (var cupon in Model)
+            {
+                bool yaReclamado = cuponesReclamados.Contains(cupon.Codigo);
+
+                <div class="voucher-container @(yaReclamado ? "reclamado" : "")"
+                     data-requires-login="@(string.IsNullOrEmpty(emailLogueado) ? "true" : "false")"
+                     onclick="@(yaReclamado ? "" : "ejecutarArranque(this)")">
+
+                    <div class="muesca e-tl"></div><div class="muesca e-tr"></div>
+                    <div class="muesca m-left"></div><div class="muesca m-right"></div>
+                    <div class="muesca e-bl"></div><div class="muesca e-br"></div>
+
+                    <div class="pin-seguro"></div>
+
+                    <div class="voucher-top">
+                        <small class="voucher-brand">RAPPI'DOZ GOLD</small>
+                        <h1 class="voucher-amount">
+                            @(cupon.EsPorcentaje? cupon.Descuento.ToString("0") + "%" : "₡" + cupon.Descuento.ToString("N0"))
+                        </h1>
+                        @if (yaReclamado)
+                        {
+                            <div class="txt-reclamado">¡YA LO RECLAMASTE!</div>
+                        }
+                        else
+                        {
+                            <small class="fw-bold">OFF</small>
+                        }
+                    </div>
+
+                    @if (!yaReclamado)
+                    {
+                        <div class="voucher-bottom">
+                            <div>
+                                <p class="voucher-title">@cupon.Titulo</p>
+                                <p class="voucher-description">@cupon.Descripcion</p>
+                            </div>
+                            <div class="voucher-stock">
+                                QUEDAN: @cupon.Stock
+                            </div>
+                        </div>
+
+                        <form asp-controller="Cupones" asp-action="Apartar" method="post" class="d-none">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="codigo" value="@cupon.Codigo" />
+                        </form>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/js/Cupones/cupones.js"></script>

@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(../img/fondo-login.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.form{
+    width: 520px;
+    height: auto;
+    background:rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color:white;
+    padding: 30px 40px;
+}
+
+.form h1{
+    font-size: 36px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.container-translucid{
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-translucid input{
+    width: 100%;
+    background:transparent;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-size: 26px;
+    color:white;
+    display: flex;
+    text-align: start;
+    padding: 5px 10px;
+}
+
+#button{
+    background-color: white;
+    border-color: transparent;
+    text-align: center;
+    color: black;
+    padding: 7px 70px;
+    border-radius: 50px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input::placeholder{
+    color: white;
+    font-size: 20px;
+    text-align: start;
+}
+
+i{
+    margin-left: 6px;
+    font-size: 24px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #173831;
+}
+
+#button:hover{
+    background-color: lightgray;
+}
+
+#remember:hover{
+    color: gray;
+}
+
+/* --- RESPONSIVO PARA MÓVILES --- */
+@media (max-width: 600px) {
+    .form {
+        /* Hacemos que el ancho sea flexible */
+        width: 90%; 
+        max-width: 400px;
+        padding: 20px 15px; /* Reducimos el espacio interno lateral */
+    }
+
+    .form h1 {
+        font-size: 28px; /* Texto un poco más pequeño para que no rompa */
+    }
+
+    .container-translucid {
+        padding: 10px 5px; /* Quitamos los márgenes laterales excesivos */
+    }
+
+    .container-translucid input {
+        font-size: 18px; /* Bajamos el tamaño de fuente del input */
+        padding: 10px 15px; /* Damos más altura para que sea fácil de tocar con el dedo */
+    }
+
+    .container {
+        flex-direction: column; /* Apilamos 'Recordarme' y 'Olvidaste contraseña' */
+        gap: 15px;
+        align-items: center;
+        padding: 0;
+        font-size: 14px;
+    }
+
+    i {
+        font-size: 18px; /* Iconos un poco más pequeños */
+    }
+
+    #button {
+        width: 100%; /* El botón ahora ocupa todo el ancho disponible */
+        padding: 12px 0;
+        font-size: 18px;
+    }
+
+    input::placeholder {
+        font-size: 16px; /* Ajustamos el placeholder */
+    }
+}

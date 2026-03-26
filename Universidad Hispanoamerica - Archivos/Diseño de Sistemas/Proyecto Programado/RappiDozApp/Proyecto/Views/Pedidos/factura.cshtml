@@ -1,0 +1,89 @@
+﻿@model RappiDozApp.Models.Pedido
+@{
+    ViewData["Title"] = "Comprobante de Pago | Rappi'Doz";
+
+    // Calculamos el subtotal real sumando Cantidad * Precio de los detalles guardados
+    decimal subtotalCalculado = Model.Detalles?.Sum(x => x.PrecioHistorico * x.Cantidad) ?? 0;
+
+    // Definimos los costos fijos que sumamos en el controlador (Total 2000)
+    decimal envio = 1500;
+    decimal tarifa = 500;
+}
+
+<link href="./css/Pedidos/factura.css" rel="stylesheet" />
+
+<div class="factura-container">
+    <div class="ticket">
+
+        <div class="header-ticket">
+            <h1 class="ticket-brand">Rappi'Doz</h1>
+            <p class="ticket-caption">Comprobante de Pago</p>
+            <p class="ticket-meta-item">Orden #@Model.Id</p>
+            <p class="ticket-meta-item">@Model.FechaHora.ToString("dd/MM/yyyy hh:mm tt")</p>
+        </div>
+
+        <div class="items-pedido">
+            @if (Model.Detalles != null && Model.Detalles.Any())
+            {
+                foreach (var item in Model.Detalles)
+                {
+                    <div class="linea-producto">
+                        <span class="linea-producto-nombre">@item.Cantidad x @(item.Producto?.Nombre ?? "Producto")</span>
+                        <span class="linea-producto-monto">₡@((item.PrecioHistorico * item.Cantidad).ToString("N0"))</span>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="ticket-warning-box">
+                    <p class="ticket-warning-text">
+                        AVISO: No se encontraron detalles de productos en la base de datos para esta orden.
+                    </p>
+                </div>
+            }
+        </div>
+
+        <div class="seccion-totales">
+            <div class="fila-total">
+                <span>Subtotal</span>
+                <b class="fila-total-amount">₡@subtotalCalculado.ToString("N0")</b>
+            </div>
+
+            <div class="fila-total">
+                <span>Envío Express</span>
+                <span>₡@envio.ToString("N0")</span>
+            </div>
+
+            <div class="fila-total">
+                <span>Tarifa de Servicio</span>
+                <span>₡@tarifa.ToString("N0")</span>
+            </div>
+
+            @if (Model.MontoDescuento > 0)
+            {
+                <div class="fila-total fila-total-descuento">
+                    <span>Descuento</span>
+                    <span>-₡@Model.MontoDescuento.ToString("N0")</span>
+                </div>
+            }
+
+            <div class="gran-total">
+                <span>TOTAL</span>
+                <span>₡@Model.Total.ToString("N0")</span>
+            </div>
+        </div>
+
+        <div class="ticket-footer">
+            <p class="ticket-thanks">¡Gracias por tu pedido!</p>
+            <i class="fas fa-qrcode fa-4x ticket-qr"></i>
+
+            <a asp-action="Seguimiento" asp-controller="Pedidos" asp-route-id="@Model.Id" class="btn-seguir">
+                RASTREAR MI PEDIDO <i class="fas fa-motorcycle ticket-btn-icon"></i>
+            </a>
+
+            <a href="@Url.Action("Index", "Home")" class="ticket-back-link">
+                VOLVER AL INICIO
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+﻿@model RappiDozApp.Models.Restaurante
+
+@{
+    ViewData["Title"] = "Registrar Restaurante";
+    int userId = ViewBag.UsuarioId ?? 0;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Restaurante - Rappi'Doz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Accesos/restaurante-info.css">
+    @* Agregado SweetAlert2 *@
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+
+    <div class="form">
+        <div class="brand-mini">
+            <span class="brand-rappi">Rappi</span><span class="brand-doz">'Doz</span>
+        </div>
+
+        <h1>Nuevo Restaurante</h1>
+
+        <form id="restaurantForm" asp-controller="Accesos" asp-action="GuardarRestaurante" method="post">
+            @Html.AntiForgeryToken()
+
+            <input type="hidden" asp-for="UsuarioId" value="@userId" />
+
+            <section class="container-translucid">
+                <input type="text" asp-for="NombreComercial" id="NombreComercial" placeholder="Nombre del negocio" required>
+                <i class="fa-solid fa-shop"></i>
+            </section>
+
+            <section class="container-translucid">
+                <input type="text" asp-for="Direccion" placeholder="Dirección exacta" required>
+                <i class="fa-solid fa-location-dot"></i>
+            </section>
+
+            <div class="time-row">
+                <div class="time-col">
+                    <label class="label-time">Apertura</label>
+                    <section class="container-translucid time-container">
+                        <input type="time" asp-for="HoraApertura" required>
+                        <i class="fa-regular fa-clock"></i>
+                    </section>
+                </div>
+                <div class="time-col">
+                    <label class="label-time">Cierre</label>
+                    <section class="container-translucid time-container">
+                        <input type="time" asp-for="HoraCierre" required>
+                        <i class="fa-solid fa-moon"></i>
+                    </section>
+                </div>
+            </div>
+
+            <section class="container-translucid select-container">
+                <select asp-for="CategoriaId" asp-items="ViewBag.Categorias" required>
+                    <option value="" disabled selected>Selecciona Categoría</option>
+                </select>
+                <i class="fa-solid fa-utensils"></i>
+            </section>
+
+            <div id="error-message" class="feedback-error hidden-feedback"></div>
+
+            <div class="container-button">
+                <button type="submit" id="button">
+                    Registrar Negocio
+                </button>
+            </div>
+
+            <div class="register register-spaced">
+                <a asp-controller="Accesos" asp-action="Login"><i class="fa-solid fa-arrow-left"></i> Cancelar registro</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="~/js/Accesos/restaurante-info.js"></script>
+</body>
+</html>
