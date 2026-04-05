@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil | RappiDoz</title>
+    <link rel="stylesheet" href="/UI-HTML-CSS/Styles/styles.css">
+    <link rel="stylesheet" href="/UI-HTML-CSS/Styles/crud-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main class="gestion-seccion">
+        <div class="seccion-header">
+            <h2>Mi Información Personal</h2>
+        </div>
+
+        <div class="grid-gestion-crud">
+            <div class="card-gestion-crud">
+                <input type="checkbox" id="check-perfil" class="toggle-detalles">
+                
+                <div class="card-principal">
+                    <div class="accion-izq">
+                        <label for="check-perfil" class="btn-lupa" title="Ver detalles">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </label>
+                    </div>
+
+                    <div class="card-contenido">
+                        <img src="../img/usuario-default.jpg" alt="Avatar Usuario">
+                        <div class="info-basica">
+                            <h3>Nombre del Usuario</h3>
+                            <div class="meta-info">
+                                <span class="etiqueta">Cliente Activo</span>
+                                <span class="valor-destacado">ID: #8842</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acciones-der">
+                        <a href="users-form.html" class="btn-accion edit" title="Editar mis datos">
+                            <i class="fa-solid fa-user-pen"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="detalles-desplegables">
+                    <div class="detalles-inner">
+                        <p><strong><i class="fa-solid fa-envelope"></i> Correo:</strong> usuario@ejemplo.com</p>
+                        <p><strong><i class="fa-solid fa-phone"></i> Teléfono:</strong> +506 8888-0000</p>
+                        <p><strong><i class="fa-solid fa-location-dot"></i> Dirección:</strong> San José, Costa Rica</p>
+                        <p><strong><i class="fa-solid fa-calendar"></i> Miembro desde:</strong> 14 de Marzo, 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/UI-HTML-CSS/js/main.js"></script>
+    <script>
+        loadComponent('header-placeholder', '../Components/header.html');
+        loadComponent('footer-placeholder', '../Components/footer.html');
+    </script>
+</body>
+</html>

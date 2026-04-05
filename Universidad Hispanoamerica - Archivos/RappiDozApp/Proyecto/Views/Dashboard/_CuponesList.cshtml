@@ -1,0 +1,80 @@
+﻿@model IEnumerable<RappiDozApp.Models.Cupon>
+
+<div class="animate__animated animate__fadeIn dashboard-section-root">
+    @* --- CABECERA --- *@
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="fw-800 mb-1 dashboard-section-title">Gestión de Cupones</h1>
+            <p class="text-muted">Administra los códigos de descuento exclusivos.</p>
+        </div>
+        <button onclick="abrirForm('Cupon', 'Crear')" class="btn-circular shadow">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+
+    <div class="row g-4">
+        @foreach (var item in Model)
+        {
+            var estaVencido = item.FechaExpiracion < DateTime.Now;
+            // Quitamos decimales
+            var descuentoEntero = Math.Floor(item.Descuento);
+
+            <div class="col-md-6 col-lg-4">
+                <div class="coupon-ticket @(estaVencido ? "expired" : "")">
+
+                    @* LADO IZQUIERDO (CAFÉ) *@
+                    <div class="t-left">
+                        @* Muescas del color del fondo (#fdfaf6) para que no se noten *@
+                        <div class="notch n-tl"></div>
+                        <div class="notch n-bl"></div>
+                        <div class="notch n-tr"></div>
+                        <div class="notch n-br"></div>
+
+                        <div class="t-content">
+                            <span class="t-val">@descuentoEntero@(item.EsPorcentaje ? "%" : "₡")</span>
+                            <span class="t-off">OFF</span>
+                        </div>
+                    </div>
+
+                    @* LADO DERECHO (BLANCO) *@
+                    <div class="t-right">
+                        @* Muescas en la extrema derecha *@
+                        <div class="notch n-tr-far"></div>
+                        <div class="notch n-br-far"></div>
+
+                        <div class="t-inner-padding d-flex flex-column h-100 justify-content-between dashboard-ticket-inner">
+                            <div>
+                                <h5 class="t-title">@item.Titulo</h5>
+                                <div class="t-code-wrapper">
+                                    <span class="t-label">CÓDIGO</span>
+                                    <span class="t-code">@item.Codigo</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-end mt-2">
+                                <div class="t-info">
+                                    <span class="rd-badge @(estaVencido ? "b-exp" : (item.Activo ? "b-act" : "b-ina"))">
+                                        @(estaVencido ? "VENCIDO" : (item.Activo ? "ACTIVO" : "INACTIVO"))
+                                    </span>
+                                    <div class="t-date">
+                                        <i class="fa-regular fa-calendar-days me-1"></i>
+                                        @(item.FechaExpiracion?.ToString("dd/MM/yyyy") ?? "N/A")
+                                    </div>
+                                </div>
+
+                                <div class="t-actions">
+                                    <button onclick="abrirForm('Cupon', 'Editar', @item.Id)" class="btn-i edit">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button onclick="eliminarRegistro('Cupon', @item.Id)" class="btn-i del">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

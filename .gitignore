@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 Diseño de Sistemas/Investigacion Proyecto.docx
 **/wwwroot/lib/
 **/bin/
 **/obj/
 node_modules/
 .DS_Store
+=======
+.vs/
+*.vsidx
+bin/
+obj/
+>>>>>>> origin/master

@@ -1,0 +1,189 @@
+@using RappiDozApp.Models
+@model List<RappiDozApp.Models.CarritoItem>
+
+@{
+    ViewData["Title"] = "Mi Carrito | Rappi'Doz";
+    decimal subtotal = ViewBag.Subtotal ?? 0;
+    decimal descuento = ViewBag.Descuento ?? 0;
+    decimal envioYTarifa = subtotal > 0 ? 2000 : 0;
+    decimal total = (subtotal + envioYTarifa) - descuento;
+    var cuponesBilletera = ViewBag.CuponesApartados as List<RappiDozApp.Models.CuponApartado>;
+    var ubicaciones = ViewBag.Ubicaciones as List<RappiDozApp.Models.UbicacionUsuario>;
+    string codigoAplicado = ViewBag.CodigoAplicado as string;
+}
+
+<div class="super-contenedor-carrito">
+    <div class="carrito-bordeado">
+
+        <input type="hidden" id="errorMsg" value="@TempData["MensajeError"]" />
+        <input type="hidden" id="successMsg" value="@TempData["MensajeExito"]" />
+
+        <header class="carrito-header">
+            <h2 class="carrito-title"><i class="fas fa-shopping-cart"></i> Pedido</h2>
+            <a href="@Url.Action("Index", "Home")" class="carrito-back-link">+ Seguir comprando</a>
+        </header>
+
+        <div class="carrito-grid">
+
+            <section>
+                @if (Model == null || !Model.Any())
+                {
+                    <div class="carrito-empty">
+                        <p class="carrito-empty-text">Aún no tienes productos.</p>
+                    </div>
+                }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="item-carrito">
+                            <img src="@item.ImagenBase64" class="img-carrito" onerror="this.src='/img/placeholder.png'">
+                            <div class="item-main-info">
+                                <h5 class="item-name">@item.Nombre</h5>
+                                <span class="item-price">₡@item.Precio.ToString("N0")</span>
+                            </div>
+                            <div class="control-cantidad">
+                                <form asp-action="ActualizarCantidad" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="productoId" value="@item.ProductoId" />
+                                    <input type="hidden" name="accion" value="disminuir" />
+                                    <button type="submit" class="btn-qty">-</button>
+                                </form>
+                                <span class="qty-number">@item.Cantidad</span>
+                                <form asp-action="ActualizarCantidad" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="productoId" value="@item.ProductoId" />
+                                    <input type="hidden" name="accion" value="aumentar" />
+                                    <button type="submit" class="btn-qty">+</button>
+                                </form>
+                            </div>
+                            <a asp-action="Eliminar" asp-route-id="@item.ProductoId" class="item-remove-link"><i class="fas fa-trash"></i></a>
+                        </div>
+                    }
+                }
+            </section>
+
+            <aside>
+                <div class="resumen-panel">
+
+                    @* SECCIÓN DE DIRECCIÓN DE ENVÍO CON ELIMINAR *@
+                    <div class="shipping-box">
+                        <p class="section-label">
+                            <i class="fas fa-map-marker-alt section-icon"></i> DIRECCIÓN DE ENVÍO
+                        </p>
+
+                        @if (ubicaciones != null && ubicaciones.Any())
+                        {
+                            <div class="ubicacion-row">
+                                <select id="selectUbicacionPedido" class="form-select ubicacion-select">
+                                    <option value="">-- ¿A dónde lo llevamos? --</option>
+                                    @foreach (var ubi in ubicaciones)
+                                    {
+                                        <option value="@ubi.IdUbicacion">📍 @ubi.NombreUbicacion</option>
+                                    }
+                                </select>
+                                
+                                <button type="button" onclick="borrarUbicacionSeleccionada()" class="ubicacion-delete-btn">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="ubicacion-extra-link-wrap">
+                                <a href="javascript:void(0)" onclick="abrirMapa()" class="ubicacion-extra-link">
+                                    <i class="fas fa-plus-circle"></i> Agregar otra
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="no-direcciones">
+                                <p class="no-direcciones-text">No tienes direcciones guardadas.</p>
+                                <button type="button" onclick="abrirMapa()" class="config-direccion-btn">
+                                    CONFIGURAR DIRECCIÓN
+                                </button>
+                            </div>
+                        }
+                    </div>
+
+                    @* SECCIÓN DE CUPONES *@
+                    <div class="seccion-cupones-superior carrito-cupones-section">
+                        <p class="section-label">
+                            <i class="fas fa-ticket-alt section-icon"></i> TUS CUPONES (Toca uno)
+                        </p>
+
+                        <div class="scroll-cupones">
+                            @if (cuponesBilletera != null && cuponesBilletera.Any())
+                            {
+                                @foreach (var c in cuponesBilletera)
+                                {
+                                    bool esActivo = codigoAplicado == c.Codigo;
+                                    <div class="card-cupon @(esActivo ? "cupon-activo" : "")" onclick="aplicar('@c.Codigo')">
+                                        <span>CÓDIGO: @c.Codigo</span>
+                                        <b>@(c.EsPorcentaje? c.Descuento + "%" : "₡" + c.Descuento.ToString("N0"))</b>
+                                        @if (esActivo)
+                                        {
+                                            <span class="badge-aplicado"><i class="fas fa-check-circle"></i> APLICADO</span>
+                                        }
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p class="cupones-empty">No tienes cupones disponibles.</p>
+                            }
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(codigoAplicado))
+                        {
+                            <div class="cupon-link-wrap">
+                                <a asp-controller="Carritos" asp-action="QuitarCupon" class="cupon-remove-link">
+                                    <i class="fas fa-times"></i> Quitar cupón
+                                </a>
+                            </div>
+                        }
+
+                        <form id="formCuponHidden" asp-action="AplicarCupon" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="codigoCupon" id="valCupon" />
+                        </form>
+                    </div>
+
+                    @* RESUMEN *@
+                    <div class="resumen-detalle">
+                        <div class="resumen-line">
+                            <span>Subtotal</span> <b>₡@subtotal.ToString("N0")</b>
+                        </div>
+                        <div class="resumen-line">
+                            <span>Envío</span> <b>₡@envioYTarifa.ToString("N0")</b>
+                        </div>
+                        @if (descuento > 0)
+                        {
+                            <div class="resumen-discount">
+                                <span><i class="fas fa-gift"></i> Descuento</span> <b>-₡@descuento.ToString("N0")</b>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="resumen-grand-total">
+                        <span>TOTAL</span> <span>₡@total.ToString("N0")</span>
+                    </div>
+
+                    @if (Model != null && Model.Any())
+                    {
+                        <form id="formCheckout" asp-controller="Pedidos" asp-action="ConfirmarPedido" method="post" class="checkout-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="UbicacionId" id="UbicacionIdFinal" />
+                            
+                            <button type="submit" class="checkout-btn">
+                                FINALIZAR COMPRA
+                            </button>
+                        </form>
+                    }
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/Carritos/carrito.js"></script>

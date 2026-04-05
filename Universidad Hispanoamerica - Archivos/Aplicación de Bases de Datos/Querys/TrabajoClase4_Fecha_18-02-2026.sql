@@ -1,0 +1,367 @@
+--------------------------------------------------------------------------------
+-- Ejercicio 6
+--------------------------------------------------------------------------------  
+       
+SELECT D.CODIGO,
+
+       D.NOMBRE,
+
+       D.DEPARTAMENTO,
+
+       D.SALARIO SALARIO,
+
+       D.PRIMER_SALARIO PRIMER_SALARIO,
+
+       D.SALARIO_SIGUIENTE SALARIO_SIGUIENTE,
+
+       D.ULTIMO_SALARIO ULTIMO_SALARIO,
+
+       D.SALARIO - D.PRIMER_SALARIO DIF_PRIMER_SALARIO,
+
+       D.ULTIMO_SALARIO - D.SALARIO DIF_ULTIMO_SALARIO
+
+  FROM (SELECT P.EMP_ID CODIGO,
+
+               P.EMP_NOMBRE NOMBRE,
+
+               P.EMP_DEPARTAMENTO DEPARTAMENTO,
+
+               P.EMP_SALARIO SALARIO,
+
+               FIRST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) PRIMER_SALARIO,
+
+               LEAD(P.EMP_SALARIO,1,0) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) SALARIO_SIGUIENTE,
+
+               LAST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO
+
+                                               ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) ULTIMO_SALARIO
+
+         FROM PLANILLA P
+         )D;
+         
+         
+--------------------------------------------------------------------------------
+-- Ejercicio 7
+-------------------------------------------------------------------------------- 
+         
+SELECT D.CODIGO,
+
+       D.NOMBRE,
+
+       D.DEPARTAMENTO,
+
+       D.SALARIO SALARIO,
+
+       D.PRIMER_SALARIO PRIMER_SALARIO,
+
+       D.SALARIO_SIGUIENTE SALARIO_SIGUIENTE,
+
+       D.ULTIMO_SALARIO ULTIMO_SALARIO,
+
+       D.SALARIO - D.PRIMER_SALARIO DIF_PRIMER_SALARIO,
+
+       D.ULTIMO_SALARIO - D.SALARIO DIF_ULTIMO_SALARIO,
+       
+       D.RANGO_SALARIO,
+       
+       D.RANGO_DENSO_SALARIO
+
+  FROM (SELECT P.EMP_ID CODIGO,
+
+               P.EMP_NOMBRE NOMBRE,
+
+               P.EMP_DEPARTAMENTO DEPARTAMENTO,
+
+               P.EMP_SALARIO SALARIO,
+               
+               RANK() OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) RANGO_SALARIO,
+       
+               DENSE_RANK() OVER ( PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) RANGO_DENSO_SALARIO,
+
+               FIRST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) PRIMER_SALARIO,
+
+               LEAD(P.EMP_SALARIO,1,0) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) SALARIO_SIGUIENTE,
+
+               LAST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO
+
+                                               ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) ULTIMO_SALARIO
+                
+
+         FROM PLANILLA P
+         )D;
+         
+--------------------------------------------------------------------------------
+-- Ejercicio 8
+-------------------------------------------------------------------------------- 
+         
+SELECT D.CODIGO,
+
+       D.NOMBRE,
+
+       D.DEPARTAMENTO,
+
+       D.SALARIO SALARIO,
+
+       D.PRIMER_SALARIO PRIMER_SALARIO,
+
+       D.SALARIO_SIGUIENTE SALARIO_SIGUIENTE,
+
+       D.ULTIMO_SALARIO ULTIMO_SALARIO,
+
+       D.SALARIO - D.PRIMER_SALARIO DIF_PRIMER_SALARIO,
+
+       D.ULTIMO_SALARIO - D.SALARIO DIF_ULTIMO_SALARIO,
+       
+       D.RANGO_SALARIO,
+       
+       D.RANGO_DENSO_SALARIO,
+       
+       D.TOTAL_SALARIO_DEPT,
+       
+       D.TOTAL_SALARIO_PLANILLA
+
+  FROM (SELECT P.EMP_ID CODIGO,
+
+               P.EMP_NOMBRE NOMBRE,
+
+               P.EMP_DEPARTAMENTO DEPARTAMENTO,
+
+               P.EMP_SALARIO SALARIO,
+               
+               SUM(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO) TOTAL_SALARIO_DEPT,
+       
+               SUM(P.EMP_SALARIO) OVER() TOTAL_SALARIO_PLANILLA,
+                      
+               RANK() OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) RANGO_SALARIO,
+       
+               DENSE_RANK() OVER ( PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) RANGO_DENSO_SALARIO,
+
+               FIRST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) PRIMER_SALARIO,
+
+               LEAD(P.EMP_SALARIO,1,0) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) SALARIO_SIGUIENTE,
+
+               LAST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO
+
+                                               ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) ULTIMO_SALARIO
+                
+
+         FROM PLANILLA P
+         )D;         
+         
+--------------------------------------------------------------------------------
+-- Ejercicio 9
+-------------------------------------------------------------------------------- 
+
+SELECT D.CODIGO,
+
+       D.NOMBRE,
+
+       D.DEPARTAMENTO,
+
+       D.SALARIO SALARIO,
+
+       D.PRIMER_SALARIO PRIMER_SALARIO,
+
+       D.SALARIO_SIGUIENTE SALARIO_SIGUIENTE,
+
+       D.ULTIMO_SALARIO ULTIMO_SALARIO,
+
+       D.SALARIO - D.PRIMER_SALARIO DIF_PRIMER_SALARIO,
+
+       D.ULTIMO_SALARIO - D.SALARIO DIF_ULTIMO_SALARIO,
+       
+       D.RANGO_SALARIO,
+       
+       D.RANGO_DENSO_SALARIO,
+       
+       D.TOTAL_SALARIO_DEPT,
+       
+       D.TOTAL_SALARIO_PLANILLA,
+       
+       ROUND(D.TOTAL_SALARIO_DEPT / D.TOTAL_SALARIO_PLANILLA *100,2) PORC_SAL_DEPT,
+       
+       ROUND(D.SALARIO / D.TOTAL_SALARIO_PLANILLA*100,2) PORC_SAL_PLANILLA
+       
+
+  FROM (SELECT P.EMP_ID CODIGO,
+
+               P.EMP_NOMBRE NOMBRE,
+
+               P.EMP_DEPARTAMENTO DEPARTAMENTO,
+
+               P.EMP_SALARIO SALARIO,
+               
+               SUM(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO) TOTAL_SALARIO_DEPT,
+       
+               SUM(P.EMP_SALARIO) OVER() TOTAL_SALARIO_PLANILLA,
+                      
+               RANK() OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) RANGO_SALARIO,
+       
+               DENSE_RANK() OVER ( PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) RANGO_DENSO_SALARIO,
+
+               FIRST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) PRIMER_SALARIO,
+
+               LEAD(P.EMP_SALARIO,1,0) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) SALARIO_SIGUIENTE,
+
+               LAST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO
+
+                                               ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) ULTIMO_SALARIO
+                
+
+         FROM PLANILLA P
+         )D;     
+
+--------------------------------------------------------------------------------
+-- Ejercicio 10
+-------------------------------------------------------------------------------- 
+
+SELECT D.CODIGO,
+
+       D.NOMBRE,
+
+       D.DEPARTAMENTO,
+
+       D.SALARIO SALARIO,
+
+       D.PRIMER_SALARIO PRIMER_SALARIO,
+
+       D.SALARIO_SIGUIENTE SALARIO_SIGUIENTE,
+
+       D.ULTIMO_SALARIO ULTIMO_SALARIO,
+
+       D.SALARIO - D.PRIMER_SALARIO DIF_PRIMER_SALARIO,
+
+       D.ULTIMO_SALARIO - D.SALARIO DIF_ULTIMO_SALARIO,
+       
+       D.RANGO_SALARIO,
+       
+       D.RANGO_DENSO_SALARIO,
+       
+       D.TOTAL_SALARIO_DEPT,
+       
+       D.TOTAL_SALARIO_PLANILLA,
+       
+       ROUND(D.TOTAL_SALARIO_DEPT / D.TOTAL_SALARIO_PLANILLA *100,2) PORC_SAL_DEPT,
+       
+       ROUND(D.SALARIO / D.TOTAL_SALARIO_PLANILLA*100,2) PORC_SAL_PLANILLA,
+       
+       ROUND(D.PROMEDIO_SALARIO_DEPT,2) PROMEDIO_SALARIO_DEPT,
+       
+       ROUND(D.PROMEDIO_SALARIO_PLANILLA,2) PROMEDIO_SALARIO_PLANILLA
+
+  FROM (SELECT P.EMP_ID CODIGO,
+
+               P.EMP_NOMBRE NOMBRE,
+
+               P.EMP_DEPARTAMENTO DEPARTAMENTO,
+
+               P.EMP_SALARIO SALARIO,
+               
+               SUM(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO) TOTAL_SALARIO_DEPT,
+       
+               SUM(P.EMP_SALARIO) OVER() TOTAL_SALARIO_PLANILLA,
+       
+               AVG(P.EMP_SALARIO) OVER(PARTITION BY P.EMP_DEPARTAMENTO) PROMEDIO_SALARIO_DEPT,
+       
+               AVG(P.EMP_SALARIO) OVER() PROMEDIO_SALARIO_PLANILLA,
+                      
+               RANK() OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) RANGO_SALARIO,
+       
+               DENSE_RANK() OVER ( PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) RANGO_DENSO_SALARIO,
+
+               FIRST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) PRIMER_SALARIO,
+
+               LEAD(P.EMP_SALARIO,1,0) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) SALARIO_SIGUIENTE,
+
+               LAST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO
+
+                                               ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) ULTIMO_SALARIO
+                
+
+         FROM PLANILLA P
+         )D; 
+
+--------------------------------------------------------------------------------
+-- Ejercicio 10 + Adicional
+-------------------------------------------------------------------------------- 
+
+SELECT D.CODIGO,
+
+       D.NOMBRE,
+       
+       D.DEPARTAMENTO,
+       
+       D.SALARIO,
+       
+       D.PRIMER_SALARIO,
+       
+       D.SALARIO_SIGUIENTE,
+       
+       D.ULTIMO_SALARIO,
+       
+       D.SALARIO - D.PRIMER_SALARIO DIF_PRIMER_SALARIO,
+       
+       D.ULTIMO_SALARIO - D.SALARIO DIF_ULTIMO_SALARIO,
+       
+       D.CLASIFICACION,
+       
+       D.CLASIFICACION_DENSA,
+       
+       SALARIO_DEPTO,
+       
+       SALARIO_PLANILLA,
+       
+       ROUND(SALARIO_DEPTO / SALARIO_PLANILLA * 100,2) PORC_SAL_DEPTO,
+       
+       ROUND(SALARIO / SALARIO_PLANILLA * 100,2) PORC_SAL_PLANILLA,
+       
+       ROUND(SALARIO_PROM_DEPTO,2) SALARIO_PROM_DEPTO,
+       
+       ROUND(SALARIO_PROM_PLANILLA,2) SALARIO_PROM_PLANILLA
+       
+  FROM (SELECT P.EMP_ID CODIGO,
+  
+               P.EMP_NOMBRE NOMBRE,
+               
+               P.EMP_DEPARTAMENTO DEPARTAMENTO,
+               
+               P.EMP_SALARIO SALARIO,
+               
+               FIRST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) PRIMER_SALARIO,
+               
+               LEAD(P.EMP_SALARIO,1,0) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) SALARIO_SIGUIENTE,
+               
+               LAST_VALUE(P.EMP_SALARIO) OVER (PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO
+                                               ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) ULTIMO_SALARIO,
+                                               
+               RANK() OVER(PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) CLASIFICACION,
+               
+               DENSE_RANK() OVER(PARTITION BY P.EMP_DEPARTAMENTO ORDER BY P.EMP_SALARIO) CLASIFICACION_DENSA,
+               
+               SUM(P.EMP_SALARIO) OVER(PARTITION BY P.EMP_DEPARTAMENTO) SALARIO_DEPTO,
+               
+               SUM(P.EMP_SALARIO) OVER() SALARIO_PLANILLA,
+               
+               AVG(P.EMP_SALARIO) OVER(PARTITION BY P.EMP_DEPARTAMENTO) SALARIO_PROM_DEPTO,
+               
+               AVG(P.EMP_SALARIO) OVER() SALARIO_PROM_PLANILLA
+               
+         FROM (SELECT PLN.EMP_ID,
+         
+                      PLN.EMP_NOMBRE,
+                      
+                      PLN.EMP_DEPARTAMENTO,
+                      
+                      NVL(PLN.EMP_SALARIO,0) EMP_SALARIO
+                      
+                 FROM PLANILLA PLN) P
+                 
+        ) D;
+
+
+
+
+         
+         
+         
+         

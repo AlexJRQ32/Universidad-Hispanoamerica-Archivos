@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Lista de Tareas Dinamica</title>
+</head>
+<body>
+    <section class="form-header">
+        <h1>Lista de Tareas Dinamica</h1>
+    </section>
+    <section class="form-body">
+        <form onsubmit="event.preventDefault(); agregarItem()">
+            <input type="text" id="nombre" placeholder="Nombre de la Tarea">
+            <input type="text" id="prioridad" placeholder="Prioridad">
+            <button class="btn-cambios" id="add-item" type="submit">
+            <i class="fa-solid fa-plus"></i>
+            </button>
+        </form>
+    </section>
+    <section class="list-items">
+        <div class="empty" id="container"> 
+            
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

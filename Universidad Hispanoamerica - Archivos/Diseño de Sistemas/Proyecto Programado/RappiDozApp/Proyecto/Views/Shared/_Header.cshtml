@@ -1,0 +1,122 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.EntityFrameworkCore
+@inject IHttpContextAccessor HttpContextAccessor
+@inject RappiDozApp.Data.ApplicationDbContext _context
+
+@{
+    var nombreUsuario = HttpContextAccessor.HttpContext.Session.GetString("NombreUsuario");
+    var fotoUsuario = HttpContextAccessor.HttpContext.Session.GetString("FotoUsuario");
+    var rolUsuario = HttpContextAccessor.HttpContext.Session.GetString("RolUsuario");
+    var carritoCount = HttpContextAccessor.HttpContext.Session.GetString("CarritoCount");
+    int? idUsuarioSesion = HttpContextAccessor.HttpContext.Session.GetInt32("UsuarioId");
+
+    bool tieneUbicacion = false;
+    if (idUsuarioSesion.HasValue)
+    {
+        tieneUbicacion = _context.UbicacionUsuario.Any(u => u.IdUsuario == idUsuarioSesion.Value);
+    }
+
+    var controller = ViewContext.RouteData.Values["Controller"]?.ToString();
+    var action = ViewContext.RouteData.Values["Action"]?.ToString();
+
+    string ClaseActiva(string c, string a = "")
+    {
+        bool esActivo = string.IsNullOrEmpty(a) ? controller == c : (controller == c && action == a);
+        return esActivo ? "link-activo" : "";
+    }
+}
+
+<nav class="navbar" data-logout-url="@Url.Action("Salir", "Accesos")">
+    <a asp-controller="Home" asp-action="Index" class="navbar-brand">
+        <img src="~/img/logo-final.png" alt="Logo">
+    </a>
+
+    <button type="button" class="menu-toggle" id="btn-menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="sesion" id="navbar-menu">
+        
+
+        @if (!string.IsNullOrEmpty(nombreUsuario))
+        {
+            <a asp-controller="Home" asp-action="Index" class="@ClaseActiva("Home", "Index")">
+                <i class="fa-solid fa-house"></i> Inicio
+            </a>
+            
+            <a asp-controller="Home" asp-action="Explorar" class="@ClaseActiva("Home", "Explorar")">
+                <i class="fa-solid fa-magnifying-glass"></i> Búsqueda
+            </a>
+
+            <a href="javascript:void(0);" onclick="window.abrirMapa()">
+                <i class="fa-solid fa-location-dot"></i> Ubicación
+                @if (!tieneUbicacion) { <span class="location-alert">!</span> }
+            </a>
+
+            <div class="cart-container">
+                <a asp-controller="Carritos" asp-action="Index" class="@ClaseActiva("Carritos")">
+                    <i class="fa-solid fa-cart-shopping"></i> Carrito
+                </a>
+                @if (!string.IsNullOrEmpty(carritoCount) && carritoCount != "0") {
+                    <span class="cart-badge">@carritoCount</span>
+                }
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn">
+                    <i class="fa-solid fa-ellipsis-vertical"></i> Más
+                </button>
+                <div class="dropdown-content">
+                    <a asp-controller="Pedidos" asp-action="Movimientos"><i class="fa-solid fa-clock-rotate-left"></i> Mis Pedidos</a>
+                    <a asp-controller="Cupones" asp-action="Index"><i class="fa-solid fa-ticket"></i> Cupones</a>
+                    <a href="javascript:void(0)" onclick="abrirCalificar()">
+                        <i class="fa-solid fa-star"></i> Califícanos
+                    </a>
+                    <div class="theme-switch-item">
+                        <input type="checkbox" id="themeSwitch" class="theme-switch-input">
+                        <label for="themeSwitch" class="theme-switch"></label>
+                        <span id="themeLabel" class="theme-switch-text">Modo oscuro</span>
+                    </div>
+
+                    @if (rolUsuario == "Administrador" || rolUsuario == "Restaurante")
+                    {
+                        <div class="dropdown-divider-line"></div>
+                        <a asp-controller="Dashboard" asp-action="Index"><i class="fa-solid fa-gauge-high"></i> Panel Admin</a>
+                    }
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <div class="user-pill">
+                    @if (!string.IsNullOrEmpty(fotoUsuario)) {
+                        <img src="data:image/png;base64,@fotoUsuario" alt="User">
+                    } else {
+                        <i class="fa-solid fa-circle-user user-icon-fallback"></i>
+                    }
+                    <div class="user-info-text">
+                        <span class="user-name">@nombreUsuario</span>
+                        <span class="user-role">@rolUsuario</span>
+                    </div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="javascript:void(0);" onclick="abrirPerfil()">
+                        <i class="fa-solid fa-user-gear"></i> Mi Cuenta
+                    </a>
+                    <div class="dropdown-divider-line"></div>
+                    <a href="javascript:void(0);" onclick="confirmarSalida()" class="logout-link">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                    </a>
+                        
+                </div>
+            </div>
+        }
+        else
+        {
+            <a asp-controller="Accesos" asp-action="Login" class="login-link-pill">
+                <i class="fa-solid fa-circle-user"></i> Iniciar sesión
+            </a>
+        }
+    </div>
+</nav>
+
+<script src="~/js/Shared/header.js"></script>

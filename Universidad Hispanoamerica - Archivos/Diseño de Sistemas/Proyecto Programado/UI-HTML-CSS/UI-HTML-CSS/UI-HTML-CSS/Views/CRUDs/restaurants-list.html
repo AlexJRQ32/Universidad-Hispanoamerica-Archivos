@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Restaurante | RappiDoz</title>
+    <link rel="stylesheet" href="/UI-HTML-CSS/Styles/styles.css">
+    <link rel="stylesheet" href="/UI-HTML-CSS/Styles/crud-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main class="gestion-seccion">
+        <div class="seccion-header">
+            <h2>Panel de mi Restaurante</h2>
+        </div>
+
+        <div class="grid-gestion-crud">
+            <div class="card-gestion-crud">
+                <input type="checkbox" id="check-rest" class="toggle-detalles">
+                
+                <div class="card-principal">
+                    <div class="accion-izq">
+                        <label for="check-rest" class="btn-lupa" title="Ver estadísticas">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </label>
+                    </div>
+
+                    <div class="card-contenido rect">
+                        <img src="../img/logo-restaurante.png" alt="Logo Restaurante">
+                        <div class="info-basica">
+                            <h3>Nombre de tu Restaurante</h3>
+                            <div class="meta-info">
+                                <span class="etiqueta">Estado: Abierto</span>
+                                <span class="valor-destacado">4.9 <i class="fa-solid fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acciones-der">
+                        <a href="./restaurants-form.html" class="btn-accion edit" title="Configurar Local">
+                            <i class="fa-solid fa-gears"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="detalles-desplegables">
+                    <div class="detalles-inner">
+                        <p><strong><i class="fa-solid fa-store"></i> Razón Social:</strong> Alimentos del Este S.A.</p>
+                        <p><strong><i class="fa-solid fa-clock"></i> Horario:</strong> 11:00 AM - 10:00 PM</p>
+                        <p><strong><i class="fa-solid fa-percent"></i> Comisión:</strong> 15%</p>
+                        <p><strong><i class="fa-solid fa-location-dot"></i> Ubicación:</strong> Mall San Pedro, Local #42</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/UI-HTML-CSS/js/main.js"></script>
+    <script>
+        loadComponent('header-placeholder', '../Components/header.html');
+        loadComponent('footer-placeholder', '../Components/footer.html');
+    </script>
+</body>
+</html>

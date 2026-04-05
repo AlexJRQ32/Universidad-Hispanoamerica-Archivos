@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Restaurante - Rappi'Doz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/UI-HTML-CSS/Styles/login-styles.css">
+    <style>
+        /* Ajuste para el select, ya que los inputs normales no cubren este elemento */
+        select {
+            width: 100%;
+            background: transparent;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            font-size: 20px; /* Un poco más pequeño para que quepa el texto largo */
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            appearance: none; /* Quita la flecha por defecto de algunos navegadores */
+        }
+
+        select option {
+            background-color: #2c3e50; /* Fondo oscuro para que se lea el texto del dropdown */
+            color: white;
+        }
+
+        .form {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div style="text-align: center; margin-bottom: 5px;">
+            <span style="color: #e74c3c; font-weight: bold; font-size: 1.2rem;">Rappi</span><span style="color: #2ecc71; font-weight: bold; font-size: 1.2rem;">'Doz</span>
+        </div>
+        
+        <h1>Nuevo Restaurante</h1>
+
+        <section class="container-translucid">
+            <input type="text" placeholder="Nombre del negocio">
+            <i class="fa-solid fa-shop"></i>
+        </section>
+
+        <section class="container-translucid">
+            <input type="text" placeholder="Dirección exacta">
+            <i class="fa-solid fa-location-dot"></i>
+        </section>
+
+        <section class="container-translucid">
+            <input type="tel" placeholder="Teléfono de contacto">
+            <i class="fa-solid fa-phone"></i>
+        </section>
+
+        <section class="container-translucid">
+            <select name="categoria">
+                <option value="" disabled selected>Selecciona Categoría</option>
+                <option value="hamburguesas">Hamburguesas</option>
+                <option value="pizza">Pizza</option>
+                <option value="pollo">Pollo</option>
+                <option value="postres">Postres</option>
+                <option value="mexicana">Comida Mexicana</option>
+                <option value="china">Comida China</option>
+            </select>
+            <i class="fa-solid fa-utensils"></i>
+        </section>
+
+        <section class="container-translucid">
+            <a href="../index.html" style="width: 100%; display: flex; justify-content: center;">
+                <input type="submit" id="button" value="Registrar Negocio" style="cursor: pointer;">
+            </a>
+        </section>
+
+        <div class="register">
+            <a href="login.html"><i class="fa-solid fa-arrow-left"></i> Cancelar registro</a>
+        </div>
+    </div>
+</body>
+</html>
