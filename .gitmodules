@@ -1,0 +1,9 @@
+[submodule "Submodules/RappiDozApp"]
+	path = Submodules/RappiDozApp
+	url = https://github.com/AlexJRQ32/RappiDozApp.git
+[submodule "Submodules/Proyecto-Programado-Aplicacion-de-Bases-de-Datos"]
+	path = Submodules/Proyecto-Programado-Aplicacion-de-Bases-de-Datos
+	url = https://github.com/AlexJRQ32/Proyecto-Programado-Aplicacion-de-Bases-de-Datos.git
+[submodule "Submodules/Logica-de-Programacion-Frontend"]
+	path = Submodules/Logica-de-Programacion-Frontend
+	url = https://github.com/AlexJRQ32/Logica-de-Programacion-Frontend.git
