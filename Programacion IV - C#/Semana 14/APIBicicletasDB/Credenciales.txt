@@ -1,0 +1,19 @@
+Base de Datos
+
+Usuario: DataBase-Proyect
+Correo: bocafon373@bizmud.com
+Contraseña: Proyectouh2025
+
+APIBicicletasDB
+
+Usuario: APIBici-Proyect
+Correo: yefekir190@bizmud.com
+Contraseña: Proyectouh2025
+
+Links de Postman
+
+http://APIBici-Proyect-uh2025.somee.com/Bicicletas/List
+http://APIBici-Proyect-uh2025.somee.com/Bicicletas/CrearBici
+http://APIBici-Proyect-uh2025.somee.com/Bicicletas/ModificarBici
+http://APIBici-Proyect-uh2025.somee.com/Bicicletas/BuscarBici?id=9
+http://APIBici-Proyect-uh2025.somee.com/Bicicletas/EliminarBici?id=9

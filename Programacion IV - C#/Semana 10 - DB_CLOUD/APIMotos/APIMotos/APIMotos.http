@@ -1,0 +1,6 @@
+@APIMotos_HostAddress = http://localhost:5136
+
+GET {{APIMotos_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

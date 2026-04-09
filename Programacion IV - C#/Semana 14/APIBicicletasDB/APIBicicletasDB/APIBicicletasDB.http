@@ -1,0 +1,6 @@
+@APIBicicletasDB_HostAddress = http://localhost:5122
+
+GET {{APIBicicletasDB_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

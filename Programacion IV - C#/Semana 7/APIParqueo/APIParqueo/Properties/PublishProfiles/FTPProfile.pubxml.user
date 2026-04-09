@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1fMY62AfB0eLnp5/MkpG5wAAAAACAAAAAAAQZgAAAAEAACAAAADtfPFBaMgDJdqE4Apf+aWchAjqhuw+VsCkEQg3+0lAxAAAAAAOgAAAAAIAACAAAACFaO6+hY4lVg2MvXXMjeG+6SLNe+08bJxPgJXzbCYXECAAAADRIzcouQSWFH5GDfsTF3hmZAkhLkvex6gdMsU7ZNuLBEAAAADu4AnaMsIOe00XXTs3cHT6y3ddBJ6TK4yD9/w5RZTLEmG9yBgjvd5Gv/O88bbdvjAaUFr4ZjqqZfbThiH4K3V+</EncryptedPassword>
+    <_PublishTargetUrl>ftp://155.254.246.29/www.Examen-AlexRUH.somee.com</_PublishTargetUrl>
+    <History>True|2025-06-26T02:31:03.5378691Z||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="APIParqueo.deps.json">
+      <publishTime>06/25/2025 20:30:17</publishTime>
+    </File>
+    <File Include="APIParqueo.dll">
+      <publishTime>06/25/2025 20:30:17</publishTime>
+    </File>
+    <File Include="APIParqueo.exe">
+      <publishTime>06/25/2025 20:30:17</publishTime>
+    </File>
+    <File Include="APIParqueo.pdb">
+      <publishTime>06/25/2025 20:30:17</publishTime>
+    </File>
+    <File Include="APIParqueo.runtimeconfig.json">
+      <publishTime>06/25/2025 20:30:17</publishTime>
+    </File>
+    <File Include="APIParqueo.staticwebassets.endpoints.json">
+      <publishTime>06/25/2025 20:30:40</publishTime>
+    </File>
+    <File Include="appsettings.Development.json">
+      <publishTime>06/25/2025 18:57:24</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>06/25/2025 18:57:24</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>03/06/2024 10:00:56</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>05/21/2024 10:42:50</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>05/21/2024 10:42:58</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>05/21/2024 10:42:50</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>06/25/2025 20:30:40</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
