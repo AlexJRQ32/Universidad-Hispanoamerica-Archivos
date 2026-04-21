@@ -1,0 +1,18 @@
+--------------------------------------------------------------------------------
+-- CREACION DE TABLAS STAGING AREA.
+-- SE CONECTA CON EL USUARIO CREADO PARA SA.
+--------------------------------------------------------------------------------
+
+CREATE TABLE SA_CLIENTE (
+    CTE_ID        VARCHAR2(255) NOT NULL,
+    CTE_NOMBRE    VARCHAR2(255) NOT NULL,
+    CTE_DIRECCION VARCHAR2(255) NOT NULL,
+    CTE_LIMITE_CREDITO VARCHAR2(255) NOT NULL
+);
+
+CREATE TABLE SA_PRESTAMO (
+    PST_ID     VARCHAR2(255) NOT NULL,
+    PST_CTE_ID VARCHAR2(255) NOT NULL,
+    PST_MONTO  VARCHAR2(255) NOT NULL,
+    PST_TASA_INTERES VARCHAR2(255) NOT NULl
+);
