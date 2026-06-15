@@ -10,3 +10,6 @@
 [submodule "opencode-starter"]
 	path = opencode-starter
 	url = https://github.com/AlexJRQ32/opencode-starter.git
+[submodule "Archivos OpenCode/opencode-starter"]
+	path = Archivos OpenCode/opencode-starter
+	url = https://github.com/AlexJRQ32/opencode-starter.git
