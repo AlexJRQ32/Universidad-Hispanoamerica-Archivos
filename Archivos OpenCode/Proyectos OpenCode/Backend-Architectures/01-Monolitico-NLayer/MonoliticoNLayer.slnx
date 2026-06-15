@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="MonoliticoNLayer.Business/MonoliticoNLayer.Business.csproj" />
-  <Project Path="MonoliticoNLayer.Data/MonoliticoNLayer.Data.csproj" />
-  <Project Path="MonoliticoNLayer.WebApi/MonoliticoNLayer.WebApi.csproj" />
-</Solution>

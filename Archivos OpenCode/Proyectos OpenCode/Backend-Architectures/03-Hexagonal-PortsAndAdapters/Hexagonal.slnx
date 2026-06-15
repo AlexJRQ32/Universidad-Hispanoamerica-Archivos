@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="Hexagonal.Adapters.Inbound/Hexagonal.Adapters.Inbound.csproj" />
-  <Project Path="Hexagonal.Adapters.Outbound/Hexagonal.Adapters.Outbound.csproj" />
-  <Project Path="Hexagonal.Core/Hexagonal.Core.csproj" />
-</Solution>

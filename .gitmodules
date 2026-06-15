@@ -7,9 +7,5 @@
 [submodule "Módulos/Proyecto-Programado-Aplicacion-de-Bases-de-Datos"]
 	path = Módulos/Proyecto-Programado-Aplicacion-de-Bases-de-Datos
 	url = https://github.com/AlexJRQ32/Proyecto-Programado-Aplicacion-de-Bases-de-Datos.git
-[submodule "opencode-starter"]
-	path = opencode-starter
-	url = https://github.com/AlexJRQ32/opencode-starter.git
-[submodule "Archivos OpenCode/opencode-starter"]
-	path = Archivos OpenCode/opencode-starter
-	url = https://github.com/AlexJRQ32/opencode-starter.git
+
+
