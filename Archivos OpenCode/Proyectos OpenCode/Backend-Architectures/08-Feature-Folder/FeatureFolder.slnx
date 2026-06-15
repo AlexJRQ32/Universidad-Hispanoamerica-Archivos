@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FeatureFolder.Api/FeatureFolder.Api.csproj" />
+  <Project Path="FeatureFolder.Shared/FeatureFolder.Shared.csproj" />
+</Solution>

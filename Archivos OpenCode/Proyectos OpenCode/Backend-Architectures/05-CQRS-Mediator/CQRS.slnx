@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CQRS.Api/CQRS.Api.csproj" />
+  <Project Path="CQRS.Application/CQRS.Application.csproj" />
+</Solution>

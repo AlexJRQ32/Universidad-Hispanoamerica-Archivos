@@ -1,0 +1,6 @@
+@MonoliticoNLayer.WebApi_HostAddress = http://localhost:5062
+
+GET {{MonoliticoNLayer.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#89b4fa"/>
+    </marker>
+    <style>
+      .bg { fill: #1e1e2e }
+      .bd { fill: none; stroke: #89b4fa; stroke-width: 3; rx: 12 }
+      .actor-head { fill: #fab387; stroke: #fab387; stroke-width: 2.5 }
+      .actor-body { stroke: #fab387; stroke-width: 2.5; fill: none }
+      .actor-label { fill: #fab387; font: bold 16px 'Segoe UI', system-ui, sans-serif; text-anchor: middle }
+      .uc-fill { fill: #313244; stroke: #89b4fa; stroke-width: 2.5 }
+      .uc-label { fill: #cdd6f4; font: bold 15px 'Segoe UI', system-ui, sans-serif; text-anchor: middle }
+      .title { fill: #cdd6f4; font: bold 22px 'Segoe UI', system-ui, sans-serif; text-anchor: middle }
+      .boundary { fill: #89b4fa; font: bold 14px 'Segoe UI', system-ui, sans-serif }
+      .line { stroke: #89b4fa; stroke-width: 2; fill: none; marker-end: url(#arrow) }
+      .legend-text { fill: #a6adc8; font: 12px 'Segoe UI', system-ui, sans-serif }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="1200" height="900"/>
+
+  <!-- Title -->
+  <text class="title" x="600" y="38">Food Delivery App — Casos de Uso</text>
+
+  <!-- System Boundary -->
+  <rect class="bd" x="30" y="55" width="1140" height="795"/>
+  <text class="boundary" x="48" y="78">Sistema Food Delivery</text>
+
+  <!-- ============================================ -->
+  <!-- ACTORS (left column, vertically distributed) -->
+  <!-- ============================================ -->
+  <!-- Actor 1: Cliente -->
+  <circle class="actor-head" cx="115" cy="175" r="18"/>
+  <line class="actor-body" x1="115" y1="193" x2="115" y2="233"/>
+  <line class="actor-body" x1="93" y1="210" x2="137" y2="210"/>
+  <line class="actor-body" x1="115" y1="233" x2="97" y2="258"/>
+  <line class="actor-body" x1="115" y1="233" x2="133" y2="258"/>
+  <text class="actor-label" x="115" y="278">Cliente</text>
+
+  <!-- Actor 2: Restaurante -->
+  <circle class="actor-head" cx="115" cy="370" r="18"/>
+  <line class="actor-body" x1="115" y1="388" x2="115" y2="428"/>
+  <line class="actor-body" x1="93" y1="405" x2="137" y2="405"/>
+  <line class="actor-body" x1="115" y1="428" x2="97" y2="453"/>
+  <line class="actor-body" x1="115" y1="428" x2="133" y2="453"/>
+  <text class="actor-label" x="115" y="473">Restaurante</text>
+
+  <!-- Actor 3: Repartidor -->
+  <circle class="actor-head" cx="115" cy="565" r="18"/>
+  <line class="actor-body" x1="115" y1="583" x2="115" y2="623"/>
+  <line class="actor-body" x1="93" y1="600" x2="137" y2="600"/>
+  <line class="actor-body" x1="115" y1="623" x2="97" y2="648"/>
+  <line class="actor-body" x1="115" y1="623" x2="133" y2="648"/>
+  <text class="actor-label" x="115" y="668">Repartidor</text>
+
+  <!-- Actor 4: Admin -->
+  <circle class="actor-head" cx="115" cy="760" r="18"/>
+  <line class="actor-body" x1="115" y1="778" x2="115" y2="818"/>
+  <line class="actor-body" x1="93" y1="795" x2="137" y2="795"/>
+  <line class="actor-body" x1="115" y1="818" x2="97" y2="843"/>
+  <line class="actor-body" x1="115" y1="818" x2="133" y2="843"/>
+  <text class="actor-label" x="115" y="863">Admin</text>
+
+  <!-- ============================================ -->
+  <!-- USE CASES (center-right, grouped by actor)   -->
+  <!-- ============================================ -->
+  <!-- Use cases are ellipses: cx, cy, rx=120, ry=30 -->
+
+  <!-- CLIENTE's use cases (row 1-4) -->
+  <ellipse class="uc-fill" cx="430" cy="170" rx="140" ry="32"/>
+  <text class="uc-label" x="430" y="175">Buscar Restaurantes</text>
+  <line class="line" x1="153" y1="185" x2="290" y2="175"/>
+
+  <ellipse class="uc-fill" cx="750" cy="170" rx="125" ry="32"/>
+  <text class="uc-label" x="750" y="175">Realizar Pedido</text>
+  <line class="line" x1="153" y1="195" x2="625" y2="175"/>
+
+  <ellipse class="uc-fill" cx="430" cy="250" rx="125" ry="32"/>
+  <text class="uc-label" x="430" y="255">Rastrear Pedido</text>
+  <line class="line" x1="153" y1="205" x2="305" y2="255"/>
+
+  <ellipse class="uc-fill" cx="750" cy="250" rx="120" ry="32"/>
+  <text class="uc-label" x="750" y="255">Cancelar Pedido</text>
+  <line class="line" x1="153" y1="215" x2="630" y2="255"/>
+
+  <!-- RESTAURANTE's use cases (row 5-7) -->
+  <ellipse class="uc-fill" cx="430" cy="370" rx="120" ry="32"/>
+  <text class="uc-label" x="430" y="375">Gestionar Menú</text>
+  <line class="line" x1="153" y1="400" x2="310" y2="375"/>
+
+  <ellipse class="uc-fill" cx="750" cy="370" rx="145" ry="32"/>
+  <text class="uc-label" x="750" y="375">Aceptar / Rechazar</text>
+  <line class="line" x1="153" y1="410" x2="605" y2="375"/>
+
+  <ellipse class="uc-fill" cx="590" cy="445" rx="110" ry="32"/>
+  <text class="uc-label" x="590" y="450">Ver Reportes</text>
+  <line class="line" x1="153" y1="420" x2="480" y2="450"/>
+
+  <!-- REPARTIDOR's use cases (row 8-9) -->
+  <ellipse class="uc-fill" cx="430" cy="565" rx="155" ry="32"/>
+  <text class="uc-label" x="430" y="570">Ver Pedidos Asignados</text>
+  <line class="line" x1="153" y1="595" x2="275" y2="575"/>
+
+  <ellipse class="uc-fill" cx="750" cy="565" rx="155" ry="32"/>
+  <text class="uc-label" x="750" y="570">Actualizar Entrega</text>
+  <line class="line" x1="153" y1="605" x2="595" y2="575"/>
+
+  <!-- ADMIN's use cases (row 10-12) -->
+  <ellipse class="uc-fill" cx="430" cy="760" rx="135" ry="32"/>
+  <text class="uc-label" x="430" y="765">Gestionar Usuarios</text>
+  <line class="line" x1="153" y1="790" x2="295" y2="768"/>
+
+  <ellipse class="uc-fill" cx="750" cy="760" rx="140" ry="32"/>
+  <text class="uc-label" x="750" y="765">Configurar Sistema</text>
+  <line class="line" x1="153" y1="800" x2="610" y2="768"/>
+
+  <ellipse class="uc-fill" cx="1000" cy="760" rx="130" ry="32"/>
+  <text class="uc-label" x="1000" y="765">Gestionar Pagos</text>
+  <line class="line" x1="153" y1="810" x2="870" y2="768"/>
+
+  <!-- Legend -->
+  <rect x="940" y="805" width="210" height="70" rx="8" fill="#181825" stroke="#45475a" stroke-width="1.5"/>
+  <text x="955" y="822" fill="#cdd6f4" font="bold 11px 'Segoe UI', system-ui, sans-serif">Leyenda</text>
+  <circle cx="955" cy="837" r="6" fill="none" stroke="#fab387" stroke-width="1.5"/>
+  <line x1="949" y1="843" x2="961" y2="843" stroke="#fab387" stroke-width="1.5"/>
+  <line x1="955" y1="843" x2="951" y2="849" stroke="#fab387" stroke-width="1.5"/>
+  <line x1="955" y1="843" x2="959" y2="849" stroke="#fab387" stroke-width="1.5"/>
+  <text class="legend-text" x="968" y="841">Actor</text>
+  <ellipse cx="955" cy="861" rx="8" ry="5" fill="none" stroke="#89b4fa" stroke-width="1.5"/>
+  <text class="legend-text" x="968" y="865">Caso de Uso</text>
+</svg>
