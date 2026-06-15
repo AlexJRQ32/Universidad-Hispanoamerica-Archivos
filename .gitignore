@@ -1,14 +1,28 @@
-<<<<<<< HEAD
-Diseño de Sistemas/Investigacion Proyecto.docx
-**/wwwroot/lib/
-**/bin/
-**/obj/
-node_modules/
-.DS_Store
-=======
+# IDEs
 .vs/
 *.vsidx
+
+# Build artifacts
 bin/
 obj/
->>>>>>> origin/master
+**/bin/
+**/obj/
+
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+
+# Compressed
 *.rar
+
+# Large binaries (exceed GitHub 100MB limit)
+**/*.exe
+**/*.msi
+**/*.dmg
+**/*.iso
+
+# Project-specific
+Diseño de Sistemas/Investigacion Proyecto.docx
+**/wwwroot/lib/
